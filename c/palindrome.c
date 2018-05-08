@@ -7,8 +7,8 @@ int main() {
     int reverse = 0;
     int remainder;
     int i, j, n, I, J;
-    for (i=10; i<100; i++) {
-	for (j=10; j<100; j++) {
+    for (i=99; i>10; i--) {
+	for (j=99; j>10; j--) {
 	    result = i*j;
 	    n = result;
 	    while (n != 0) {
@@ -17,11 +17,10 @@ int main() {
 		n /= 10;
 	    }
 	    if (result == reverse) {
-		if (result > largest) {
-		    largest=result;
-		    I = i;
-		    J = j;
-		}
+		largest=result;
+		I = i;
+		J = j;
+		break;
 	    }
 	}
     }
