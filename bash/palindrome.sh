@@ -1,17 +1,21 @@
 #!/usr/bin/env bash
 
 # brute force!
-largest=
-for ((i=100;i<1000;i++)); do
-    for ((j=100;j<1000;j++)); do
+declare -i i j largest
+for ((i=99; i>=10; i--)); do
+    for ((j=99; j>=i; j--)); do
+
 	result=$((i*j))
 	reverse=$(echo $result | rev)
+
+	if ((result <= largest)); then
+	    break 2
+	fi
+
 	if [[ $result == $reverse ]]; then
-	    if ((result>largest)); then
-		largest=$result
-		I=$i
-		J=$j
-	    fi
+	    largest=$result
+	    I=$i
+	    J=$j
 	fi
     done
 done
