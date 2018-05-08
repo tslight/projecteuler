@@ -19,10 +19,17 @@ int find_largest() {
     int i, j;
 
     for (i=999; i>=100; i--) {
-	for (j=i; j>=100; j--) {
+	for (j=999; j>=i; j--) {
+
 	    result = i*j;
+
+	    if (result <= largest) {
+		break;
+	    }
+
 	    reversed = reverse(result);
-	    if (result == reversed && result > largest) {
+
+	    if (result == reversed) {
 		largest = result;
 	    }
 	}
