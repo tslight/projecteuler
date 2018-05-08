@@ -2,17 +2,12 @@
 
 # brute force!
 declare -i i j largest
-for ((i=99; i>=10; i--)); do
-    for ((j=99; j>=i; j--)); do
 
+for ((i=999; i>=100; i--)); do
+    for ((j=i; j>=100; j--)); do
 	result=$((i*j))
 	reverse=$(echo $result | rev)
-
-	if ((result <= largest)); then
-	    break 2
-	fi
-
-	if [[ $result == $reverse ]]; then
+	if [[ $result == $reverse && $result -gt $largest ]]; then
 	    largest=$result
 	    I=$i
 	    J=$j

@@ -18,31 +18,23 @@ int find_largest() {
     int largest = 0, result, reversed;
     int i, j;
 
-    i=999;
-    while (i>=100) {
-	j=999;
-	while (j>=i) {
-
+    for (i=999; i>=100; i--) {
+	for (j=i; j>=100; j--) {
 	    result = i*j;
-
-	    if (result <= largest) {
-		return largest;
-	    }
-
 	    reversed = reverse(result);
-
-	    if (result == reversed) {
+	    if (result == reversed && result > largest) {
 		largest = result;
 	    }
-	    j--;
 	}
-	i--;
     }
+
+    return largest;
 }
 
 int main() {
     int largest;
 
     largest = find_largest();
+
     printf("%d\n", largest);
 }
