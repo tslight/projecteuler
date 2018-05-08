@@ -2,13 +2,20 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-int main() {
-    int i = 20, j;
+int main(int argc, char *argv[]) {
+    unsigned long number, i, j;
     bool multiple = false;
 
-    while (i >= 20) {
+    if (argc<=1) {
+	printf("Enter Number: ");
+	scanf("%lu", &number);
+    } else {
+	number = strtoul(argv[1], argv, 10);
+    }
 
-	for (j=1; j<=20; j++) {
+    while (i>=number) {
+
+	for (j=1; j<=number; j++) {
 
 	    if (i%j == 0) {
 		multiple=true;
@@ -19,7 +26,7 @@ int main() {
 	}
 
 	if (multiple == true) {
-	    printf("Multiple found at %d\n" ,i);
+	    printf("Multiple found at %lu\n" ,i);
 	    break;
 	}
 	i++;
